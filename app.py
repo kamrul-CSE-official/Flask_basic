@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request  # type: ignore
+from flask import Flask, render_template, request, redirect  # type: ignore
 
 app = Flask(__name__)
 
@@ -38,6 +38,14 @@ def home():
         datas.append(new_todo)
         
     return render_template('index.html', data=datas)
+
+@app.route("/remove/<int:todoid>")
+def removeTodo(todoid):
+    for todo in datas:
+        if todo["id"] == todoid:
+            datas.remove(todo)
+    return redirect('/')
+
 
 @app.route("/about")
 def about():
