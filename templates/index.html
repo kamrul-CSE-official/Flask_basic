@@ -1,25 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Flask learn - home</title>
-  </head>
-  <body>
-    <h1>This is home</h1>
-    <h3>{{data['name']}}</h3>
-
-    <p>{{data['numbers']}}</p>
-
-    {% for i in data['numbers'] %}
-        {% if i==5 %}
-            <h1>{{i}}</h1>
-        {% endif %}
-        <h5>{{i}}</h5>
-    {%endfor%}
-
-
-    <a href="/about">Go about</a>
-    <a href="/contact">Go contact</a>
-  </body>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="my-5">
+            <form action="/home" method="POST">
+                <input placeholder="Add todo..." type="text" name="title" id="">
+                <input type="submit" value="Add Todo">
+            </form>
+        </div>
+        <div>
+            {% for todo in data %}
+                <div>
+                    <p>{{ todo.id }}: {{ todo.title }}</p>
+                    <div>
+                        <a href="" class="btn btn-danger">Delete</a>
+                        <a href="" class="btn btn-info">Update</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
 </html>
