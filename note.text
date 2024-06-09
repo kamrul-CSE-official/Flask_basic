@@ -1,3 +1,4 @@
 1. python -m venv venv (ভারচুয়াল ইনভারমেন্ট)
-2. source venv/Scripts/activite
+2. source venv/Scripts/activite আথবা activate venv
 3. pip install flask
+4. pip freese (এটা দ্বারা কি কি package ইনস্টল হইছে সব দেখা যাই)
