@@ -47,23 +47,19 @@ def removeTodo(todoid):
     return redirect('/')
 
 
-@app.route("/update/<int:todoid>", methods=['GET'])
+@app.route("/update/<int:todoid>", methods=['GET', 'POST'])
 def updateTodo(todoid):
-    for todo in datas:
-        if todo['id'] == todoid:
-            return render_template('update.html', todo=todo)
+    if request.method == 'GET':
+        for todo in datas:
+            if todo['id'] == todoid:
+                return render_template('update.html', todo=todo)
+    if request.method == "POST":
+        title = request.form['title']
+        for todo in datas:
+            if todo['id'] == todoid:
+                todo["title"] = title
     return redirect("/")
 
-
-@app.route("/updateTodo", methods=['POST'])
-def update():
-    title = request.form['title']
-    id = int(request.form['id'])  # Convert id to int for comparison
-    for todo in datas:
-        if todo['id'] == id:
-            todo['title'] = title
-            return redirect('/home')
-    return redirect('/')
 
 @app.route("/about")
 def about():
