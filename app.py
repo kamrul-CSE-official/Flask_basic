@@ -62,7 +62,7 @@ def update():
     for todo in datas:
         if todo['id'] == id:
             todo['title'] = title
-            return redirect('/')
+            return redirect('/home')
     return redirect('/')
 
 @app.route("/about")
