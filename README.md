@@ -8,8 +8,8 @@ This project is built using [Flask](https://flask.palletsprojects.com/), a light
 ### Installation
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/your-flask-project.git
-   cd your-flask-project
+   git clone https://github.com/kamrul-CSE-official/Flask_basic.git
+   cd Flask_basic
 
 2. **Create a virtual environment:**
     ```bash
